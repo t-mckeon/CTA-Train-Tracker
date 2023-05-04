@@ -25,3 +25,7 @@ The Chicago Transit Authority provides citizens with live-time data of the CTA T
 The API imports the train location data as an XML file. To parse out the data, we use the BeautifulSoup module to clean up the XML, and the find_all() function to grab each train in the system and loop through its properties, adding the data to a pandas dataframe. 
 
 ### Managing BigQuery
+
+Google Cloud Platform provides a data storage service called [BigQuery](https://cloud.google.com/bigquery), which can be used to house the CTA data for effectively no cost (Limits apply to storage and queueing data, but for this app's purpose we don't come near those limits). I have data uploading to two BigQuery tables in this project. One is a snapshot table that truncates (replaces) the current location data of trains, continously updating and feeding the table and figure in my dash app. The second table is an aggregate table that takes data that has been transformed into train-run oriented data - containing the times a certain train passed each station on its route. This table is currently not being used but will hopefully form the base of a predictive model that will estimate train arrival times in a later iteration of the website.
+
+### Building out Dash App
