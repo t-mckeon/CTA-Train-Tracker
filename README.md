@@ -18,4 +18,10 @@ Major components of gathering data and displaying the dashboard:
 
 ### CTA Train Tracking API
 
-The Chicago Transit Authority provides citizens with live-time data of the CTA Trains currently on the system, in the expressed purpose to "create interesting new applications and mash-ups that’ll help people get the information they want or need about CTA services". By going to the [CTA API Site](https://www.transitchicago.com/developers/traintracker/) , and signing up for a key through the API Key Application Form, the CTA will provide an API Key likely that same day.
+The Chicago Transit Authority provides citizens with live-time data of the CTA Trains currently on the system, in the expressed purpose to "create interesting new applications and mash-ups that’ll help people get the information they want or need about CTA services". By going to the [CTA API Site](https://www.transitchicago.com/developers/traintracker/) and signing up for a key through the API Key Application Form, the CTA will provide an API Key likely that same day.
+
+### Parsing API Data
+
+The API imports the train location data as an XML file. To parse out the data, we use the BeautifulSoup module to clean up the XML, and the find_all() function to grab each train in the system and loop through its properties, adding the data to a pandas dataframe. 
+
+### Managing BigQuery
