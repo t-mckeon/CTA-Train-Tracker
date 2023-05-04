@@ -34,10 +34,17 @@ Google Cloud Platform provides a data storage service called [BigQuery](https://
 The Dash App build followed these main steps:
   1) Creating an html script setting up the base table and figure elements for the dashboard
   2) Defining a function that grabs the CTA data from BigQuery and loads it into a dataframe
-  3) Obtaining a geojson file of the lat/lon locations of the CTA train system from the [Chicago Data Portal](https://data.cityofchicago.org/browse?q=cta&sortBy=relevance) (Might have to convert a Shapfile into geojson
+  3) Obtaining a geojson file of the lat/lon locations of the CTA train system from the [Chicago Data Portal](https://data.cityofchicago.org/browse?q=cta&sortBy=relevance) (Might have to convert a Shapfile into geojson)
   3) Defining a function that plots the traces of the Train Lines, as well as the locations of the trains currently running on the CTA system
   4) Defining a function that takes in 'route color' as an input, and outputs a table with all the trains running on that Line
   5) Defining callback functions on the app to update the dashboard every 30 seconds, including 'State' dependancies to maintain UI consistency while updates are occuring
   6) Creating 'update_on_load' function to run the app, and update it on designated interval
   
 ### Setting up Virutal Machine
+
+Google Cloud Platform also provides [Virtual Machines](https://cloud.google.com/compute/docs/instances/create-start-instance), essentially allowing users to use a CPU hosted virtually by google to run programs/software without having to keep your computer on constantly. These Virtual Machines are quites cost friendly as well, depending on usage. Setting up the Virtual Machine is pretty straightforward, but to run the dash app all of the dependancies must be imported into the VM's instance as well, as well as any assets the dash app uses. Finally, we use 'tmux' to run the Data Load and Dash App python scripts, which will run even when you close out of the SSH terminal in the Virtual Machine.
+
+### Google Domain and SSL Certificate
+
+
+
