@@ -2,6 +2,9 @@
 Dash-backed web application displaying locations and arrival times of CTA trains.
 Link: http://whereismytrainat.com
 
+<img width="1507" alt="dash_display_screenshot" src="https://user-images.githubusercontent.com/105253832/236321514-7102c0ea-b9a1-4e0a-bff4-8168067d46ba.png">
+
+
 ## Process
 
 Major components of gathering data and displaying the dashboard:
