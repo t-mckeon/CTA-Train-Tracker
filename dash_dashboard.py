@@ -13,7 +13,7 @@ import geopandas as gpd
 import json
 import re
 import os
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/Thomas/Desktop/future-sonar-331521-1d79baf510a6.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'PATH TO BIGQUERY CREDENTIALS'
 
 
 external_stylesheets = ['https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css']
@@ -24,10 +24,10 @@ server = app.server
 
 # Set up authentication for BigQuery
 credentials = service_account.Credentials.from_service_account_file(
-    '/Users/Thomas/Desktop/future-sonar-331521-1d79baf510a6.json',
+    'PATH TO BIGQUERY CREDENTIALS',
     scopes=["https://www.googleapis.com/auth/cloud-platform"],
 )
-project_id = "future-sonar-331521"
+project_id = "BIGQUERY PROJECT ID"
 
 client = bigquery.Client(credentials=credentials, project=project_id)
 
@@ -69,7 +69,7 @@ app.layout = html.Div([
 
 # Set the title and icon of the web app
 app.title = 'CTA Train Tracker'
-app.icon = 'assets/favicon.ico'
+app.icon = 'assets/cta.ico'
 
 
 # Define a function to get the train location data from BigQuery
@@ -77,7 +77,7 @@ def get_bq_data():
     client = bigquery.Client()
     query = """
         SELECT route, run_number, destination_station_name, latitude, longitude, next_station_name, timestamp, arrival_time, heading
-        FROM `future-sonar-331521.cta_tracker.train_data`
+        FROM `BIGQUERY TABLE ID`
     """
     query_job = client.query(query)
     results = query_job.result()
@@ -102,7 +102,7 @@ def plot_train_locations(zoom, lat, lon):
     train_df = get_bq_data()
 
     # Read in the CTA train lines GeoJSON file
-    with open('CTA_RailLines.geojson', 'r') as f:
+    with open('assets/CTA_RailLines.geojson', 'r') as f:
         cta_lines = json.load(f)
 
     # Create a mapbox plot of the CTA train lines
@@ -314,7 +314,7 @@ def update_on_load(interval, fig, route, table_div):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8050)
 
 
 
