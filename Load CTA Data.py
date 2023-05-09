@@ -15,7 +15,7 @@ import datetime
 
 
 # Set up BigQuery client and credentials
-client = bigquery.Client.from_service_account_json('/Users/Thomas/Desktop/future-sonar-331521-1d79baf510a6.json')
+client = bigquery.Client.from_service_account_json('PATH TO BIGQUERY CREDENTIALS')
 
 # Route Mapping Dict to transform parameter variables into corresponding line name
 route_map = {'y': 'Yellow Line',
@@ -31,7 +31,7 @@ route_map = {'y': 'Yellow Line',
 # Define function to get data from CTA API and create dataframe
 def get_cta_data():
     url = 'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx'
-    params = {'key': '0d7da073f7834a43a58138ac44735353', 'rt': ['red,blue,brn,g,org,p,pink,y'], 'outputType': 'xml'}
+    params = {'key': 'CTA API KEY', 'rt': ['red,blue,brn,g,org,p,pink,y'], 'outputType': 'xml'}
     response = requests.get(url, params=params)
     soup = BeautifulSoup(response.content, 'xml')
     train_data = []
@@ -60,7 +60,7 @@ def get_cta_data():
 
 # Define function to upload snapshot dataframe to BigQuery
 def upload_snapshot_to_bigquery(df):
-    table_id = 'future-sonar-331521.cta_tracker.train_data'
+    table_id = 'BIGQUERY TABLE ID'
     job_config = bigquery.LoadJobConfig(
         schema=[
             bigquery.SchemaField('route', 'STRING'),
@@ -131,7 +131,7 @@ def update_route_times(to_ingest, route_times):
 def upload_run_to_bigquery(df):
     df['list_of_stations'].apply(lambda x: json.dumps(x))
     df['date'] = (datetime.date.today())
-    table_id = 'future-sonar-331521.cta_tracker.run_data'
+    table_id = 'BIGQUERY TABLE ID'
     job_config = bigquery.LoadJobConfig(
         schema = [
             bigquery.SchemaField('date', 'DATE', mode='REQUIRED'),
