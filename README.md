@@ -46,7 +46,9 @@ Google Cloud Platform also provides [Virtual Machines](https://cloud.google.com/
 
 NOTE: Google Cloud Platform Virtual Machines are not meant for sites with high traffic. This solution is used as I am not expecting high traffic on the site for the near future. 
 
-### Google Domain and SSL Certificate
+### Google Domain
+
+Purchase domain from Google Domain, setting up the DNS settings to match the external IP addres of your VM. Now when you run the dash app script with host = '0.0.0.0' (Open) through your virtual machine, the app should dislay on your purchased domain.
 
 
 
