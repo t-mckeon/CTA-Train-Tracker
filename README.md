@@ -48,7 +48,7 @@ NOTE: Google Cloud Platform Virtual Machines are not meant for sites with high t
 
 ### Google Domain
 
-Purchase domain from Google Domain, setting up the DNS settings to match the external IP addres of your VM. Now when you run the dash app script with host = '0.0.0.0' (Open) through your virtual machine, the app should dislay on your purchased domain.
+Purchase domain from Google Domain, setting up the DNS settings to match the external IP addres of your VM. Now when you run the dash app script with host = '0.0.0.0' (Open) through your virtual machine, the app should dislay on your purchased domain. Make sure firewall settings in your VM allow for outside traffic onto the port specified in your dash app script (such as 8050, traffic isn't allowed through port 80 in GCP VM's).
 
 
 
