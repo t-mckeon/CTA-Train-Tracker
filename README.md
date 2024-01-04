@@ -4,8 +4,6 @@ Link: http://whereismytrainat.com
 
 <img width="1507" alt="dash_display_screenshot" src="https://user-images.githubusercontent.com/105253832/236321514-7102c0ea-b9a1-4e0a-bff4-8168067d46ba.png">
 
-Note: Researching the process and writing the code for this project was aided by the use of [ChatGPT](https://openai.com/blog/chatgpt)
-
 ## Process
 
 Major components of gathering data and displaying the dashboard:
@@ -49,6 +47,9 @@ NOTE: Google Cloud Platform Virtual Machines are not meant for sites with high t
 ### Google Domain
 
 Purchase domain from Google Domain, setting up the DNS settings to match the external IP addres of your VM. Now when you run the dash app script with host = '0.0.0.0' (Open) through your virtual machine, the app should dislay on your purchased domain. Make sure firewall settings in your VM allow for outside traffic onto the port specified in your dash app script (such as 8050, traffic isn't allowed through port 80 in GCP VM's).
+
+
+Note: Researching the process and writing the code for this project was aided by the use of [ChatGPT](https://openai.com/blog/chatgpt)
 
 
 
