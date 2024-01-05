@@ -40,9 +40,9 @@ The Dash App build followed these main steps:
   
 ### Setting up Virutal Machine
 
-Google Cloud Platform also provides [Virtual Machines](https://cloud.google.com/compute/docs/instances/create-start-instance), essentially allowing users to use a CPU hosted virtually by google to run programs/software without having to keep your computer on constantly. These Virtual Machines are quites cost friendly as well, depending on usage. Setting up the Virtual Machine is pretty straightforward, but to run the dash app all of the dependancies must be imported into the VM's instance as well, as well as any assets the dash app uses. Finally, we use 'tmux' to run the Data Load and Dash App python scripts, which will run even when you close out of the SSH terminal in the Virtual Machine.
+Google Cloud Platform also provides [Virtual Machines](https://cloud.google.com/compute/docs/instances/create-start-instance), allowing users to use a CPU hosted virtually by google to run programs/software without running on your local device. These Virtual Machines are quites cost friendly as well, depending on usage. Setting up the Virtual Machine is pretty straightforward, but to run the dash app all of the dependancies must be imported into the VM's instance, as well as any assets the dash app uses. Finally, we use the 'tmux' call to run the Data Load and Dash App python scripts, which will run even when you close out of the SSH terminal in the Virtual Machine.
 
-NOTE: Google Cloud Platform Virtual Machines are not meant for sites with high traffic. This solution is used as I am not expecting high traffic on the site for the near future. 
+NOTE: Google Cloud Platform Virtual Machines are not meant for sites with high traffic. This solution is used as I am not expecting high traffic on the site for the near future.
 
 ### Google Domain
 
